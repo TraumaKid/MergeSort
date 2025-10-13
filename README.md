@@ -13,7 +13,7 @@ This project provides a simple Java implementation of the Merge Sort algorithm.
 1. Clone the repository.
 2. Compile the Java files:
     ```sh
-    javac MergeSort.java
+    javac src/MergeSort.java
     ```
 3. Run the program:
     ```sh
