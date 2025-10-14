@@ -23,6 +23,6 @@ This project provides a simple Java implementation of the Merge Sort algorithm.
 ## Example
 ```java
 int[] arr = {5, 2, 9, 1, 5, 6};
-Sorter.sort(arr);
+Sorter.mergeSort(arr);
 System.out.println(Arrays.toString(arr)); // [1, 2, 5, 5, 6, 9]
 ```

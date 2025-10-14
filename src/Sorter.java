@@ -67,12 +67,42 @@ public class Sorter {
     }
 
 
-    public static void main(String[] args) {
-        // Example showing the merge sort working
-        int[] arr = new int[]{5, 9, 2, 3, 1, 2, 10, 5};
-        int[] sorted = Sorter.mergeSort(arr);
+    // Parse string array
+    public static int[] stringToArray(String arrString) {
+        int[] charCodeValues = arrString.chars().toArray();
+        for (int val : charCodeValues) {
+            System.out.println((char) val);
+            
+        }
 
-        System.out.println(Arrays.toString(sorted));
+        return new int[]{1, 2};
+    }
+
+    public static void main(String[] args) {
+        // A command line util which doesn't allow 
+        if (args.length < 2) {
+            System.err.println("Unexpected usage! Proper usage post compile: java -d bin src/Sorter -sort '[1, 2, 3, 4]'");
+            return;
+        }
+
+        String command = args[0];
+
+        if (!command.equals("-sort")) {
+            System.err.println("Unexpected command! Proper usage post compile: java -d bin src/Sorter -sort '[1, 2, 3, 4]'");
+            return;
+        }
+        
+        String arrayStr = args[1];
+        System.out.println(arrayStr);
+        if (!(arrayStr.startsWith("[") && arrayStr.endsWith("]"))) {
+            System.err.println("Array must be enclosed in []! Proper usage post compile: java -d bin src/Sorter -sort '[1, 2, 3, 4]'");
+            return;
+        }
+
+        stringToArray(arrayStr);
+
+
+        
 
         
     }
