@@ -69,17 +69,20 @@ public class Sorter {
 
     // Parse string array
     public static int[] stringToArray(String arrString) {
-        int[] charCodeValues = arrString.chars().toArray();
-        for (int val : charCodeValues) {
-            System.out.println((char) val);
-            
-        }
+        String filteredString = arrString.replace('[', ' ').replace(']', ' ').replaceAll(" ", ""); // Replace both the brackets and the newly created trailling spaces
+        String[] stringValues = filteredString.split(",");
 
-        return new int[]{1, 2};
+        int[] intValues = new int[stringValues.length];
+        for (int i = 0; i<stringValues.length; i++) {
+            intValues[i] = Integer.parseInt(stringValues[i]);
+        }
+        
+
+        return intValues;
     }
 
     public static void main(String[] args) {
-        // A command line util which doesn't allow 
+        // A command line util which doesn't allow improper input validating the input up until the array
         if (args.length < 2) {
             System.err.println("Unexpected usage! Proper usage post compile: java -d bin src/Sorter -sort '[1, 2, 3, 4]'");
             return;
@@ -93,15 +96,20 @@ public class Sorter {
         }
         
         String arrayStr = args[1];
-        System.out.println(arrayStr);
         if (!(arrayStr.startsWith("[") && arrayStr.endsWith("]"))) {
             System.err.println("Array must be enclosed in []! Proper usage post compile: java -d bin src/Sorter -sort '[1, 2, 3, 4]'");
             return;
         }
 
-        stringToArray(arrayStr);
+        // Parse the user string
+        int[] userArr = stringToArray(arrayStr);
+        
+        // Sort the user string
+        int[] sortedArr = mergeSort(userArr);
 
-
+        // Print the sorted array to the user
+        System.out.println("Un-Sorted: " + arrayStr);
+        System.out.println("Sorted: " + Arrays.toString(sortedArr));
         
 
         

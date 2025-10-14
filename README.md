@@ -17,12 +17,10 @@ This project provides a simple Java implementation of the Merge Sort algorithm.
     ```
 3. Run the program:
     ```sh
-    java Sorter
+    java Sorter -sort "[{YOUR_VALUES}]"
     ```
 
-## Example
-```java
-int[] arr = {5, 2, 9, 1, 5, 6};
-Sorter.mergeSort(arr);
-System.out.println(Arrays.toString(arr)); // [1, 2, 5, 5, 6, 9]
+## Example(assuming already compiled)
+```sh
+java Sorter -sort "[1, 5, 4, 2, 9, -1, 0, 10, 3]"
 ```
